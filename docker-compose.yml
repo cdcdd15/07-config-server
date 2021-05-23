@@ -1,0 +1,19 @@
+version: '3.7'
+networks:
+  spring-config-net:
+    external: true
+services:
+  spring-config-server-service:
+    image: cosdin/07-config-server:0.0.1-SNAPSHOT
+    ports:
+      - "8888:8888"
+    restart: always
+    networks:
+      - spring-config-net
+  spring-config-client:
+    image: cosdin/10-config-client:0.0.1-SNAPSHOT
+    ports:
+      - "8080:8080"
+    restart: always
+    networks:
+      - spring-config-net
