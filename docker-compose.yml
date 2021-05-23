@@ -4,6 +4,7 @@ networks:
     external: true
 services:
   spring-config-server-service:
+    container_name: 'config-server-service'
     image: cosdin/07-config-server:0.0.1-SNAPSHOT
     ports:
       - "8888:8888"
@@ -11,6 +12,7 @@ services:
     networks:
       - spring-config-net
   spring-config-client:
+    container_name: 'config-client'
     image: cosdin/10-config-client:0.0.1-SNAPSHOT
     ports:
       - "8080:8080"
